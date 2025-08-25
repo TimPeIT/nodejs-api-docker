@@ -21,3 +21,5 @@ Dies ist eine containerisierte React-App, gebaut mit Vite und ausgeliefert über
 ```bash
 docker build -t my-react-app .
 docker run -d -p 8080:80 --name react-container my-react-app
+
+

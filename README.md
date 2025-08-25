@@ -33,3 +33,39 @@ Die Installation reproduzierbar über package-lock.json bleibt
 EXPOSE 3000 im Dockerfile dokumentiert, dass der Container diesen Port verwendet.
 
 docker run -p 3000:3000 verbindet den Container-Port (rechts) mit einem Host-Port (links), sodass du im Browser auf die Anwendung zugreifen kannst.
+
+    Namensräume
+
+Warum ist <username>/<repository> wichtig?
+
+Das Format verhindert Namenskonflikte. Wenn alle einfach my-app nennen könnten, gäbe es Chaos. So gehört jedes Image eindeutig zu einem Benutzer.
+
+    Tag vs. Build
+
+Was ist der Unterschied zwischen docker tag und docker build -t?
+
+docker build -t erstellt ein neues Image mit einem Namen/Tag.
+
+docker tag erstellt keinen neuen Inhalt, sondern vergibt nur ein zusätzliches Etikett für ein bestehendes Image (keine Duplizierung).
+
+    Versionierung
+
+Du hast einen kleinen Fehler behoben – welche Version?
+
+Ich würde :1.0.1 verwenden (semantische Versionierung: PATCH-Level).
+Große neue Features → :1.1,
+kompatible Änderungen → :1.0.1.
+
+Warum wichtig?
+Damit Nutzer gezielt stabile oder neue Versionen nutzen können.
+
+    Öffentlich vs. Privat
+
+Wann würdest du ein privates Repo verwenden?
+
+Bei sensiblen Projekten, internen Tools oder wenn Quellcode nicht öffentlich gemacht werden soll. Zum Beispiel bei CI/CD-Builds mit geheimen Konfigurationen.
+
+## 🔗 Docker Hub
+
+Mein Image ist öffentlich erreichbar unter:  
+➡️ [https://hub.docker.com/r/timpeit/my-react-app](https://hub.docker.com/r/timpeit/my-react-app)
